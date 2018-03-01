@@ -1,5 +1,9 @@
 # ZettabyteAssignment
+
+
 sample User data format
+
+
 {
 	"user_name":"kiran",
 	"email_id" :"kiran.devkar@gmail.com",
