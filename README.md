@@ -38,7 +38,8 @@ PictureCRUD operation
 
 
 
-To run this Application use command
+To run this Application use command:
+
 node bin/www
 
     
