@@ -1,11 +1,9 @@
 # ZettabyteAssignment
-
-
 sample User data format
 
 
-{
-	"user_name":"kiran",
+
+[{"user_name":"kiran",
 	"email_id" :"kiran.devkar@gmail.com",
 	"adrress":{
         "adrressLine1":"karvenagar",
@@ -20,12 +18,11 @@ sample User data format
            
     },
     {
-    	"category":"Sarita pic",
-    	 "fileName":"Sarita.jpg",
+    	"category":"personal pic",
+    	 "fileName":"per2.jpg",
     	"filePath":"https://thumb1.shutterstock.com/display_pic_with_logo/1290487/322015064/stock-vector-school-building-bus-and-front-yard-with-students-children-flat-style-vector-illustration-isolated-322015064.jpg"
-           
+     }]
     }]
-    }
 	
 	
 UserCRUD Operations
