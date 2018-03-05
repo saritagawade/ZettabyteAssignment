@@ -23,6 +23,7 @@ router.route('/get/:fileName').get(function(req,res,next){
           res.send(users[0].uploaded_picture);
         }
   });
+});
 
 //Api to delete the user
 router.route('/delete/:fileName').delete(function(req,res,next){
@@ -48,10 +49,13 @@ router.route('/delete/:fileName').delete(function(req,res,next){
                   data.push(upload);
               }
           }
+            //console.log("data to push>>>",data);
             userData.uploaded_picture =data;
-            var temp = new user(userData); 
-            console.log('In after');
-            temp.update({'email':userData.email_id},function(err,user){
+            console.log(">>>>>>User Data",userData);
+            var user = new user(userData);
+            //var body = _.pick(userData,['user_name','address','uploaded_picture']); 
+            //console.log('>>>>>>body',body);
+            user.update({'email_id':userData.email_id},function(err,user){
               if(err)
                 res.send(err);
               else
@@ -62,7 +66,6 @@ router.route('/delete/:fileName').delete(function(req,res,next){
             })
         }
     });
-});
 });
 
 module.exports = router;
