@@ -33,7 +33,6 @@ router.post('/users',(req, res)=>{
          
         res.send("user created successfully");
     });
-  res.send(req.body);
 });
 
 
@@ -72,7 +71,7 @@ router.route('/delete/:email_id').delete(function(req,res,next){
 router.route('/updateUser/:email_id').patch(function(req,res){
   console.log(req.params.email_id);
   var body = _.pick(req.body,['user_name','email_id','address','uploaded_picture']);
-  user.update({'email':req.params.email_id}, {$set: body}, (err, doc)=>{
+  user.update({'email_id':req.params.email_id}, {$set: body}, (err, doc)=>{
       console.log('Inside',doc);
                 if(err){
                     console.log('Error',err);
