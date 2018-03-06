@@ -52,10 +52,10 @@ router.route('/delete/:fileName').delete(function(req,res,next){
             //console.log("data to push>>>",data);
             userData.uploaded_picture =data;
             console.log(">>>>>>User Data",userData);
-            var user = new user(userData);
+            //var user = new user(userData);
             //var body = _.pick(userData,['user_name','address','uploaded_picture']); 
             //console.log('>>>>>>body',body);
-            user.update({'email_id':userData.email_id},function(err,user){
+            user.update({'email_id':userData.email_id},{$set:userData},function(err,user){
               if(err)
                 res.send(err);
               else
