@@ -16,16 +16,27 @@ router.get('/pictures', function(req, res) {
 
 //Get API
 router.route('/get/:fileName').get(function(req,res,next){  
+  
   user.find({"uploaded_picture.fileName":req.params.fileName},function(err,users){
+    var picture=[];
         if(err)
       res.send(err);
-        else{
-          res.send(users[0].uploaded_picture);
+      else{
+        for(var i=0;i<users[0].uploaded_picture.length;i++){
+          if(users[0].uploaded_picture[i].fileName==req.params.fileName){
+            picture = {
+                  category :users[0].uploaded_picture[i].category,
+                  fileName:users[0].uploaded_picture[i].fileName,
+                  filePath:users[0].uploaded_picture[i].filePath
+                }
+             }
+          }
+         res.send(picture);
         }
   });
 });
 
-//Api to delete the user
+//Api to delete the picture By pictureName
 router.route('/delete/:fileName').delete(function(req,res,next){
   var data = [];
   user.find({"uploaded_picture.fileName":req.params.fileName},function(err,users){
