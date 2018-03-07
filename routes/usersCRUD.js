@@ -70,7 +70,7 @@ router.route('/delete/:email_id').delete(function(req,res,next){
 //To Update The user
 router.route('/updateUser/:email_id').patch(function(req,res){
   console.log(req.params.email_id);
-  var body = _.pick(req.body,['user_name','email_id','address','uploaded_picture']);
+  var body = _.pick(req.body,['user_name','email_id','adrress','uploaded_picture']);
   user.update({'email_id':req.params.email_id}, {$set: body}, (err, doc)=>{
       console.log('Inside',doc);
                 if(err){
